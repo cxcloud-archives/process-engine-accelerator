@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "start": "AWS_PROFILE=personal node ./dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write 'src/**/*.ts'",
     "precommit": "lint-staged"
@@ -26,9 +28,13 @@
   },
   "homepage": "https://github.com/cxcloud/process-engine-accelerator#readme",
   "devDependencies": {
+    "@types/node": "^8.5.2",
     "husky": "^0.14.3",
     "lint-staged": "^6.0.0",
     "prettier": "^1.9.2",
     "typescript": "^2.6.2"
+  },
+  "dependencies": {
+    "@cxcloud/process-engine-core": "^1.1.0"
   }
 }
