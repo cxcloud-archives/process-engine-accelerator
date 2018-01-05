@@ -1,5 +1,5 @@
 import { Message, SendMessageFunction } from '@cxcloud/process-engine-core';
-import { createAction } from '../utils/tools';
+import { createProcessorAction } from '../utils/tools';
 
 export const conditions = [
   {
@@ -8,7 +8,7 @@ export const conditions = [
   }
 ];
 
-export const action = createAction(
+export const action = createProcessorAction(
   async (message: Message, sendMessage: SendMessageFunction) => {
     console.log('Doing stuff here');
   },
