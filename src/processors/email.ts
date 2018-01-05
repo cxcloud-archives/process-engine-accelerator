@@ -1,5 +1,5 @@
 import { Message, SendMessageFunction } from '@cxcloud/process-engine-core';
-import { deleteAndCallNext } from '../utils/message';
+import { createAction } from '../utils/tools';
 
 export const conditions = [
   {
@@ -8,8 +8,9 @@ export const conditions = [
   }
 ];
 
-export const action = (message: Message, sendMessage: SendMessageFunction) => {
-  console.log('Got an email request', message.data);
-
-  return deleteAndCallNext(message);
-};
+export const action = createAction(
+  async (message: Message, sendMessage: SendMessageFunction) => {
+    console.log('Doing stuff here');
+  },
+  true
+);
