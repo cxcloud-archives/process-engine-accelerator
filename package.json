@@ -35,6 +35,6 @@
     "typescript": "^2.6.2"
   },
   "dependencies": {
-    "@cxcloud/process-engine-core": "^1.2.0"
+    "@cxcloud/process-engine-core": "^1.2.2"
   }
 }
