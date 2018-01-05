@@ -4,10 +4,11 @@ import {
   Message
 } from '@cxcloud/process-engine-core';
 import * as emailProcessor from './processors/email';
+import { logger } from './utils/logger';
 
 const catchAll = (e: Message) => {
-  console.log('NOT FOUND FOR ', e.data);
-  return e.next();
+  logger.warn('No processor found for action. Sending back queue.', e.data);
+  e.next();
 };
 
 const pool = createQueuePool([

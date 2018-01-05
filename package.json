@@ -5,16 +5,15 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
+    "dev":
+      "AWS_PROFILE=personal nodemon --ignore dist --ext js,ts,json --exec \"'ts-node' src/index.ts | bunyan\"",
     "start": "AWS_PROFILE=personal node ./dist",
     "test": "echo \"Error: no test specified\" && exit 1",
     "format": "prettier --write 'src/**/*.ts'",
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "src/**/*.ts": [
-      "prettier --write",
-      "git add"
-    ]
+    "src/**/*.ts": ["prettier --write", "git add"]
   },
   "repository": {
     "type": "git",
@@ -28,13 +27,17 @@
   },
   "homepage": "https://github.com/cxcloud/process-engine-accelerator#readme",
   "devDependencies": {
+    "@types/bunyan": "^1.8.4",
     "@types/node": "^8.5.2",
     "husky": "^0.14.3",
     "lint-staged": "^6.0.0",
+    "nodemon": "^1.14.7",
     "prettier": "^1.9.2",
+    "ts-node": "^4.1.0",
     "typescript": "^2.6.2"
   },
   "dependencies": {
-    "@cxcloud/process-engine-core": "^1.2.2"
+    "@cxcloud/process-engine-core": "^1.2.2",
+    "bunyan": "^1.8.12"
   }
 }
