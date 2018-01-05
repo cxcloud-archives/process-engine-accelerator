@@ -6,7 +6,10 @@ export type ProcessActionFn = (
   sendMessage: SendMessageFunction
 ) => Promise<any>;
 
-export function createAction(fn: ProcessActionFn, deleteMessage = true) {
+export function createProcessorAction(
+  fn: ProcessActionFn,
+  deleteMessage = true
+) {
   return function processMessage(
     message: Message,
     sendMessage: SendMessageFunction
