@@ -15,9 +15,17 @@ const catchAll = (e: Message) => {
 };
 
 const pool = createQueuePool([
+  // createQueueProcessor(
+  //   {
+  //     name: config.get<string>('sqs.events'),
+  //     region: DEFAULT_REGION
+  //   },
+  //   [emailProcessor],
+  //   catchAll
+  // ),
   createQueueProcessor(
     {
-      name: config.get<string>('sqs.events'),
+      name: config.get<string>('sqs.actions'),
       region: DEFAULT_REGION
     },
     [emailProcessor],

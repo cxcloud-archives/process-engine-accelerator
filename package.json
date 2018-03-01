@@ -30,9 +30,12 @@
   },
   "homepage": "https://github.com/cxcloud/process-engine-accelerator#readme",
   "devDependencies": {
+    "@types/aws-sdk": "^2.7.0",
     "@types/bunyan": "^1.8.4",
     "@types/config": "0.0.34",
-    "@types/node": "^8.5.2",
+    "@types/ejs": "^2.5.0",
+    "@types/node": "^8.9.4",
+    "@types/nodemailer": "^4.3.4",
     "husky": "^0.14.3",
     "lint-staged": "^6.0.0",
     "nodemon": "^1.14.7",
@@ -42,7 +45,10 @@
   },
   "dependencies": {
     "@cxcloud/process-engine-core": "^1.2.2",
+    "aws-sdk": "^2.204.0",
     "bunyan": "^1.8.12",
-    "config": "^1.29.4"
+    "config": "^1.29.4",
+    "ejs": "^2.5.7",
+    "nodemailer": "^4.6.0"
   }
 }

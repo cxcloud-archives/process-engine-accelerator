@@ -16,10 +16,18 @@ export function createProcessorAction(
   ) {
     logger.info('Received Message', message.data);
     return fn(message, sendMessage)
-      .then(() => {
+      .then(response => {
+        logger.info(
+          `Action succeeded for message ${message.name}`,
+          response ? response : ''
+        );
         if (deleteMessage) {
           return message.deleteMessage().then(() => message.next());
         }
+        return message.next();
+      })
+      .catch(err => {
+        logger.error('Action failed:', err);
         return message.next();
       })
       .then(() => {
