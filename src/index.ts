@@ -22,8 +22,7 @@ pool.setProcessors([
   createQueueProcessor(
     {
       name: config.get<string>('sqs.events'),
-      region: DEFAULT_REGION,
-      concurrency: 2
+      region: DEFAULT_REGION
     },
     [orderCreatedProcessor],
     catchAll
@@ -31,8 +30,7 @@ pool.setProcessors([
   createQueueProcessor(
     {
       name: config.get<string>('sqs.actions'),
-      region: DEFAULT_REGION,
-      concurrency: 2
+      region: DEFAULT_REGION
     },
     [emailProcessor],
     catchAll

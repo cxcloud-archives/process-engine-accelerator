@@ -1,6 +1,3 @@
 {
-  "region": "eu-west-1",
-  "sqs": {
-    "events": "events"
-  }
+  "region": "eu-west-1"
 }
