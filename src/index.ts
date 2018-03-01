@@ -5,7 +5,9 @@ import {
 } from '@cxcloud/process-engine-core';
 import * as config from 'config';
 import * as emailProcessor from './processors/email';
+import * as orderCreatedProcessor from './processors/order-created';
 import { logger } from './utils/logger';
+import { getSharedPool } from './pool';
 
 const DEFAULT_REGION = config.get<string>('region');
 
@@ -14,19 +16,23 @@ const catchAll = (e: Message) => {
   e.next();
 };
 
-const pool = createQueuePool([
-  // createQueueProcessor(
-  //   {
-  //     name: config.get<string>('sqs.events'),
-  //     region: DEFAULT_REGION
-  //   },
-  //   [emailProcessor],
-  //   catchAll
-  // ),
+const pool = getSharedPool();
+
+pool.setProcessors([
+  createQueueProcessor(
+    {
+      name: config.get<string>('sqs.events'),
+      region: DEFAULT_REGION,
+      concurrency: 2
+    },
+    [orderCreatedProcessor],
+    catchAll
+  ),
   createQueueProcessor(
     {
       name: config.get<string>('sqs.actions'),
-      region: DEFAULT_REGION
+      region: DEFAULT_REGION,
+      concurrency: 2
     },
     [emailProcessor],
     catchAll

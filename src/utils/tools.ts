@@ -29,9 +29,6 @@ export function createProcessorAction(
       .catch(err => {
         logger.error('Action failed:', err);
         return message.next();
-      })
-      .then(() => {
-        logger.info('Message processed. Calling next');
       });
   };
 }
