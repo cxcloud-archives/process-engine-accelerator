@@ -36,7 +36,6 @@ export const action = createProcessorAction(
       'utf8'
     );
     const html = ejs.render(template, data.data);
-    console.log(html);
 
     const result = await transporter.sendMail({
       from,
