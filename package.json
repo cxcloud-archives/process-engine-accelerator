@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "dev": "nodemon --ignore dist --ext js,ts,json --exec \"'ts-node' src/index.ts | bunyan\"",
+    "dev": "nodemon",
     "start": "node ./dist",
     "start:production": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -38,9 +38,9 @@
     "@types/nodemailer": "^4.3.4",
     "husky": "^0.14.3",
     "lint-staged": "^6.0.0",
-    "nodemon": "^1.14.7",
+    "nodemon": "^1.17.1",
     "prettier": "^1.9.2",
-    "ts-node": "^4.1.0",
+    "ts-node": "^5.0.1",
     "typescript": "^2.6.2"
   },
   "dependencies": {
