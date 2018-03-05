@@ -1,6 +1,7 @@
 {
   "region": "eu-west-1",
   "ses": {
+    "fromName": "CXCloud Dev",
     "from": "awsadmin-dev@cxcloud.com"
   }
 }

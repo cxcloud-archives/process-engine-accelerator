@@ -14,7 +14,7 @@ export const action = createProcessorAction((message: Message) => {
   const { order } = message.data;
   return sendAction({
     type: 'email',
-    from: sesConfig.from,
+    from: `${sesConfig.fromName} <${sesConfig.from}>`,
     to: order.customerEmail,
     subject: 'Thanks! Your order has been received',
     data: order,
