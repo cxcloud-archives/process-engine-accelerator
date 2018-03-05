@@ -16,6 +16,8 @@ const catchAll = (e: Message) => {
   e.next();
 };
 
+logger.info(config.get('sqs'));
+
 const pool = getSharedPool();
 
 pool.setProcessors([
