@@ -1,2 +1,21 @@
-Order Number: <%- orderNumber %><br />
-Customer: <%- customerEmail %>
+<p>
+  Hi <%- shippingAddress.firstName %> <%- shippingAddress.lastName %>,<br />
+  Thank you for submitting an order with our awesome shop!
+</p>
+<p>
+  We have received your order with number <strong><%- orderNumber %></strong>. Here's a summary of your order:
+</p>
+<ul>
+  <% lineItems.forEach(function(li) { %>
+    <li><strong><%- li.name.en %></strong> &times; <%- li.quantity %></li>
+  <% }) %>
+</ul>
+<p>
+  Total (incl. VAT): <%- (taxedPrice.totalGross.centAmount * 0.01).toFixed(2) %> €<br />
+  <small>Net: <%- (taxedPrice.totalNet.centAmount * 0.01).toFixed(2) %> €</small><br />
+</p>
+<hr />
+<p>
+  Thank you<br />
+  CXCloud.
+</p>
