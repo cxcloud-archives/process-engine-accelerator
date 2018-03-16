@@ -18,9 +18,6 @@ Please contact the team to have your public gpg key to the project so you can un
 
 This project's master branch is automatically deoployed to development environment on AWS.
 
-## License
-
-This software is released under the [MIT License](LICENSE).
 
 ## Copy repository
 
@@ -44,3 +41,7 @@ $ git remote -v
 $ git commit -am "Initial commit"
 $ git push --set-upstream origin master [--force]
 ```
+
+## License
+
+This software is released under the [MIT License](LICENSE).
